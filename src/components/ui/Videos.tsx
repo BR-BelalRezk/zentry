@@ -18,7 +18,6 @@ export default function Videos() {
 
   const handleMiniVdClick = () => {
     setHasClicked(true);
-
     setCurrentIndex(upcomingVideo);
   };
 
@@ -54,20 +53,15 @@ export default function Videos() {
   return (
     <>
       <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
-        <VideoPreview>
-          <div
-            onClick={handleMiniVdClick}
-            className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
-          >
-            <video
-              ref={nextVdRef}
-              src={getVideoSrc(currentIndex)}
-              loop
-              muted
-              id="current-video"
-              className="size-64 origin-center scale-150 object-cover object-center"
-            />
-          </div>
+        <VideoPreview onClick={handleMiniVdClick}>
+          <video
+            ref={nextVdRef}
+            src={getVideoSrc(currentIndex)}
+            loop
+            muted
+            id="current-video"
+            className="size-64 origin-center scale-150 object-cover object-center"
+          />
         </VideoPreview>
       </div>
 

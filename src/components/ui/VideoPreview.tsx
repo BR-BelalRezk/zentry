@@ -3,7 +3,13 @@
 import { gsap } from "gsap";
 import { useState, useRef, useEffect } from "react";
 
-export const VideoPreview = ({ children }: { children: React.ReactNode }) => {
+export const VideoPreview = ({
+  children,
+  onClick,
+}: {
+  onClick: () => void;
+  children: React.ReactNode;
+}) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const sectionRef = useRef(null);
@@ -59,11 +65,12 @@ export const VideoPreview = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div
+      onClick={onClick}
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className="absolute z-50 size-full overflow-hidden rounded-lg"
+      className="absolute z-50 size-full overflow-hidden rounded-lg origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
       style={{
         perspective: "500px",
       }}
