@@ -13,12 +13,13 @@ export default function Videos() {
   const [hasClicked, setHasClicked] = useState(false);
 
   const totalVideos = 4;
+  const upcomingVideo = (currentIndex % totalVideos) + 1;
   const nextVdRef = useRef<HTMLVideoElement>(null);
 
   const handleMiniVdClick = () => {
     setHasClicked(true);
 
-    setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
+    setCurrentIndex(upcomingVideo);
   };
 
   useGSAP(
@@ -60,7 +61,7 @@ export default function Videos() {
           >
             <video
               ref={nextVdRef}
-              src={getVideoSrc((currentIndex % totalVideos) + 1)}
+              src={getVideoSrc(currentIndex)}
               loop
               muted
               id="current-video"
