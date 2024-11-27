@@ -18,7 +18,7 @@ export default function Section({ className, children, id }: Props) {
     if (isInView) {
       setActiveSection(id);
     }
-  }, [id, isInView]);
+  }, [id, isInView, setActiveSection]);
   return (
     <section ref={ref} id={id} className={className}>
       {children}

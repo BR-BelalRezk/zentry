@@ -3,7 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { VideoPreview } from "./VideoPreview";
 
 gsap.registerPlugin(ScrollTrigger);

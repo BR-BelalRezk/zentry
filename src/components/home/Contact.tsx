@@ -29,7 +29,7 @@ export default function Contact() {
         <div className=" flex flex-col items-center text-center">
           <p className="font-general text-xs uppercase">join zentry</p>
           <p className="special-font relative z-50 font-zentry mt-10 w-full text-5xl leading-[0.9] md:text-8xl">
-            let's b<b>u</b>ild the <br /> new era of <br /> g<b>a</b>ming t
+            let&apos;s b<b>u</b>ild the <br /> new era of <br /> g<b>a</b>ming t
             <b>o</b>gether.
           </p>
           <Button title="contact us" className="mt-10 cursor-pointer" />

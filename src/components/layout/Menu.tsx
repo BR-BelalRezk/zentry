@@ -1,5 +1,4 @@
 "use client";
-import { navbarItems } from "@/constants";
 // compound components
 
 import { AnimatePresence, motion, Variants } from "framer-motion";

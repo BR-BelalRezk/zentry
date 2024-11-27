@@ -1,8 +1,4 @@
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 import { TiLocationArrow } from "react-icons/ti";
-import { useState } from "react";
-
 import Button from "../ui/Button";
 import Section from "../ui/Section";
 import VideoFrame from "../ui/VideoFrame";
