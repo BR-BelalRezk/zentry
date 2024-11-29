@@ -1,21 +1,16 @@
-"use client";
-
 import { gsap } from "gsap";
 import { useState, useRef, useEffect } from "react";
 
-export const VideoPreview = ({
+export default function VideoPreview({
   children,
-  onClick,
 }: {
-  onClick: () => void;
   children: React.ReactNode;
-}) => {
+}) {
   const [isHovering, setIsHovering] = useState(false);
 
-  const sectionRef = useRef(null);
+  const containerRef = useRef(null);
   const contentRef = useRef(null);
 
-  // Handles mouse movement over the container
   const handleMouseMove = (e: React.MouseEvent) => {
     const { clientX, clientY, currentTarget } = e;
     const rect = currentTarget.getBoundingClientRect();
@@ -24,7 +19,7 @@ export const VideoPreview = ({
     const yOffset = clientY - (rect.top + rect.height / 2);
 
     if (isHovering) {
-      gsap.to(sectionRef.current, {
+      gsap.to(containerRef.current, {
         x: xOffset,
         y: yOffset,
         rotationY: xOffset / 2,
@@ -45,7 +40,7 @@ export const VideoPreview = ({
 
   useEffect(() => {
     if (!isHovering) {
-      gsap.to(sectionRef.current, {
+      gsap.to(containerRef.current, {
         x: 0,
         y: 0,
         rotationY: 0,
@@ -65,12 +60,11 @@ export const VideoPreview = ({
 
   return (
     <div
-      onClick={onClick}
-      ref={sectionRef}
+      ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className="absolute z-50 size-full overflow-hidden rounded-lg origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
+      className="absolute z-50 size-full overflow-hidden rounded-lg"
       style={{
         perspective: "500px",
       }}
@@ -86,4 +80,4 @@ export const VideoPreview = ({
       </div>
     </div>
   );
-};
+}
